@@ -14,82 +14,70 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-let data = {};
-
 // 화면 렌더링
 app.get("/", (req, res) => {
   res.render("main");
 });
-app.get("/axiosget", (req, res) => {
-  console.log(req.query, "ㅇㅇ");
 
-  res.send({ title: "왔다!" });
+app.get("/page1", (req, res) => {
+  res.render("page1", { title: "page1 입니다." });
 });
-app.get("/join", (req, res) => {
-  res.render("join");
+app.get("/page2", (req, res) => {
+  res.render("page2", { title: "page2 입니다." });
 });
-app.get("/findid", (req, res) => {
-  res.render("findid");
+app.get("/page3", (req, res) => {
+  res.render("page3", { title: "page3 입니다." });
 });
-app.get("/findpw", (req, res) => {
-  res.render("findpw");
+app.get("/page4", (req, res) => {
+  res.render("page4", { title: "page4 입니다." });
 });
-app.get("/welcome", (req, res) => {
-  res.render("welcome");
+app.get("/page5", (req, res) => {
+  res.render("page5", { title: "page5 입니다." });
 });
-
-// 정보요청
-app.get("/getData", (req, res) => {
-  console.log(req.query, "회원가입get요청 왔니?");
-  res.json(data);
+app.get("/page6", (req, res) => {
+  res.render("page6", { title: "page6 입니다." });
 });
-
-// 회원가입 정보 보냄
-app.post("/postForm", (req, res) => {
-  // 클라이언트에서 전송한 데이터 추출
-  let { id, pw, name, birth1, birth2, birth3, gender, phone1, phone2, phone3 } =
-    req.body;
-
-  // 휴대전화 번호(서버에서 합침)
-  let phone = `${phone1}${phone2}${phone3}`;
-  let birth;
-  // 생년월일(서버에서 합침)
-  if (birth2.length === 1) {
-    birth2 = 0 + birth2;
-  }
-  if (birth3.length === 1) {
-    birth3 = 0 + birth3;
-  }
-  birth = `${birth1}${birth2}${birth3}`;
-  // 가공한 데이터
-  let newUser = {
-    id,
-    pw,
-    name,
-    birth,
-    gender,
-    phone,
-  };
-  data = newUser;
-  console.log(req.body, "회원가입정보post요청 왔니?");
+app.get("/page7", (req, res) => {
+  res.render("page7", { title: "page7 입니다." });
 });
-
-// 휴대번호 정보 보냄
-app.post("/postPhone", (req, res) => {
-  // 클라이언트에서 전송한 데이터 추출
-  let { phone1, phone2, phone3 } = req.body;
-
-  // 휴대전화 번호 합침
-  let phone = `${phone1}${phone2}${phone3}`;
-
-  data = phone;
-  console.log(data, "회원가입정보post요청 왔니?");
+app.get("/page8", (req, res) => {
+  res.render("page8", { title: "page8 입니다." });
 });
-
-// 아이디 정보 보냄
-app.post("/postId", (req, res) => {
-  data = req.body;
-  console.log(data, "회원가입정보post요청 왔니?");
+app.get("/page9", (req, res) => {
+  res.render("page9", { title: "page9 입니다." });
+});
+app.get("/page10", (req, res) => {
+  res.render("page10", { title: "page10 입니다." });
+});
+app.get("/page11", (req, res) => {
+  res.render("page11", { title: "page11 입니다." });
+});
+app.get("/page12", (req, res) => {
+  res.render("page12", { title: "page12 입니다." });
+});
+app.get("/page13", (req, res) => {
+  res.render("page13", { title: "page13 입니다." });
+});
+app.get("/page14", (req, res) => {
+  res.render("page14", { title: "page14 입니다." });
+});
+app.get("/page15", (req, res) => {
+  res.render("page15", { title: "page15 입니다." });
+});
+app.get("/page16", (req, res) => {
+  res.render("page16", { title: "page16 입니다." });
+});
+app.get("/page17", (req, res) => {
+  res.render("page17", { title: "page17 입니다." });
+});
+app.get("/page18", (req, res) => {
+  res.render("page18", { title: "page18 입니다." });
+});
+app.get("/page19", (req, res) => {
+  res.render("page19", { title: "page19 입니다." });
+});
+app.get("/page20", (req, res) => {
+  res.render("page20", { title: "page20 입니다." });
 });
 
 app.listen(port, () => {
