@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- alert창 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>회원가입</title>
+</head>
+
+<!-- 회원가입 페이지 -->
+
+<body>
+  <div class="join-container">
+    <h2>회원가입</h2>
+    <form name="joinForm">
+      <!-- 이름 -->
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input class="in" id="name" type="text" placeholder="이름을 입력해 주세요." name="name" required />
+      </div>
+      <!-- 성별 -->
+      <div class="form-group">
+        <label>성별</label>
+        <div class="gender-group">
+          <label for="female">여성</label><input id="female" type='radio' name='gender' value='female' id="female" />
+          <label for="male">남성</label><input id="male" type='radio' name='gender' value='male' id="male" />
+        </div>
+      </div>
+      <!-- 생년월일 -->
+      <div class="form-group">
+        <label for="birth">생년월일</label>
+        <div class="info" id="info__birth">
+          <select class="in" name="birth1" class="box" id="birth-year" required>
+            <option disabled selected>출생 연도</option>
+          </select>
+          <select class="in" name="birth2" class="box" id="birth-month" required>
+            <option disabled selected>월</option>
+          </select>
+          <select class="in" name="birth3" class="box" id="birth-day" required>
+            <option disabled selected>일</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 관심사 -->
+      <label for="like">관심사</label><br />
+      <input type='checkbox' name='hobby1' value='travel' />여행
+      <input type='checkbox' name='hobby2' value='passion' />패션
+      <input type='checkbox' name='hobby3' value='food' />음식
+      <br />
+      <input type="button" onclick="onClick()" value="회원가입" class="join-btn" />
+    </form>
+    <!-- <div class="text checkall"></div> -->
+  </div>
+</body>
+
+</html>
+<script>
+  // '출생 연도' 셀렉트 박스 option 목록 동적 생성
+  const birthYearEl = document.querySelector("#birth-year");
+  const birthMonthEl = document.querySelector("#birth-month");
+  const birthDayEl = document.querySelector("#birth-day");
+  // option 목록 생성 여부 확인
+  isYearOptionExisted = false;
+  isMonthOptionExisted = false;
+  isDayOptionExisted = false;
+  birthYearEl.addEventListener("focus", function () {
+
+    if (!isYearOptionExisted) {
+      isYearOptionExisted = true;
+      for (var i = 1940; i <= 2025; i++) {
+
+        birthYearEl.innerHTML += `<option value=${i}>${i}</option>`;
+      }
+    }
+  });
+  birthMonthEl.addEventListener("focus", function () {
+
+    if (!isMonthOptionExisted) {
+      isMonthOptionExisted = true;
+      for (var i = 1; i <= 12; i++) {
+
+        birthMonthEl.innerHTML += `<option value=${i}>${i}</option>`;
+      }
+    }
+  });
+  birthDayEl.addEventListener("focus", function () {
+
+    if (!isDayOptionExisted) {
+      isDayOptionExisted = true;
+      for (var i = 1; i <= 31; i++) {
+
+        birthDayEl.innerHTML += `<option value=${i}>${i}</option>`;
+      }
+    }
+  });
+  // axios요청
+  const onClick = () => {
+    const joinForm = document.joinForm;
+    const names = joinForm.name.value;
+    const genders = document.querySelector('input[name="gender"]:checked')?.value;
+    const birth1 = joinForm.birth1.value;
+    const birth2 = joinForm.birth2.value;
+    const birth3 = joinForm.birth3.value;
+    const hobby1 = joinForm.hobby1.value;
+    const hobby2 = joinForm.hobby2.value;
+    const hobby3 = joinForm.hobby3.value;
+    const hobbys = `${hobby1},${hobby2},${hobby3}`;
+    let births;
+    if (birth2.length === 1 && birth2.length === 1) {
+      births = `${birth1}0${birth2}0${birth3}`;
+    } else if (birth2.length === 1) {
+      births = `${birth1}0${birth2}${birth3}`;
+    } else if (birth3.length === 1) {
+      births = `${birth1}${birth2}0${birth3}`;
+    }
+
+    const data = {
+      name: names,
+      gender: genders,
+      birth: births,
+      hobby: hobbys
+    };
+
+    axios({
+      method: "get",
+      url: "/axiosget",
+      params: data,
+    }).then((res) => {
+      console.log(res.data);
+    }).catch((e) => {
+      console.log("에러");
+    });
+  };
+</script>

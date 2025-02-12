@@ -14,72 +14,28 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
+let id = "qwer";
+let pw = "1234";
+
 // 화면 렌더링
 app.get("/", (req, res) => {
   res.render("main");
 });
-// 뒤에서부터임...
-app.get("/asjdsjdhh2", (req, res) => {
-  res.render("asjdsjdhh2");
+app.get("/join", (req, res) => {
+  res.render("join");
 });
-app.get("/dhsjhsjd14", (req, res) => {
-  res.render("dhsjhsjd14");
+
+app.get("/axiosget", (req, res) => {
+  res.send(req.query);
 });
-app.get("/djdsksnn1", (req, res) => {
-  res.render("djdsksnn1");
+app.post("/axiospost", (req, res) => {
+  console.log(req.body, "post 성공");
+  if (id === req.body.id && pw === req.body.pw) {
+    res.send("200");
+  } else {
+    res.send("404");
+  }
 });
-app.get("/djkskjdsjsk12", (req, res) => {
-  res.render("djkskjdsjsk12");
-});
-app.get("/dkdkkw5", (req, res) => {
-  res.render("dkdkkw5");
-});
-app.get("/dksjdknsk124", (req, res) => {
-  res.render("dksjdknsk124");
-});
-app.get("/dksjdskj1jk", (req, res) => {
-  res.render("dksjdskj1jk");
-});
-app.get("/dmdmsms1", (req, res) => {
-  res.render("dmdmsms1");
-});
-app.get("/dmdmsn12", (req, res) => {
-  res.render("dmdmsn12");
-});
-app.get("/dmsmsmx1", (req, res) => {
-  res.render("dmsmsmx1");
-});
-app.get("/dsasdw1", (req, res) => {
-  res.render("dsasdw1");
-});
-app.get("/dsds14", (req, res) => {
-  res.render("dsds14");
-});
-app.get("/dsndjsjsn124", (req, res) => {
-  res.render("dsndjsjsn124");
-});
-app.get("/dsnsq123", (req, res) => {
-  res.render("dsnsq123");
-});
-app.get("/ejmdnwnq2", (req, res) => {
-  res.render("ejmdnwnq2");
-});
-app.get("/gmsmd213", (req, res) => {
-  res.render("gmsmd213");
-});
-app.get("/ndnsns1", (req, res) => {
-  res.render("ndnsns1");
-});
-app.get("/sadksandamsndmn1", (req, res) => {
-  res.render("sadksandamsndmn1");
-});
-app.get("/sajdnskdk2", (req, res) => {
-  res.render("sajdnskdk2");
-});
-app.get("/skdksjdksjksjd1", (req, res) => {
-  res.render("skdksjdksjksjd1");
-});
-// 여기가 첫번째임
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

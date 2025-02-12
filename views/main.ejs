@@ -2,113 +2,62 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="/css/main.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
+<!-- 로그인 페이지 -->
+
 <body>
-  <div class="box"></div>
+  <div class="login-box">
+    <form name="mainForm">
+      <div>
+        <div>아이디</div>
+        <input class="emailinput" type="email" placeholder="이메일을 작성해 주세요." name="id" required />
+      </div>
+
+      <div>
+        <div>비밀번호</div>
+        <input class="pass" type="password" placeholder="비밀번호를 입력해 주세요." name="pass" required />
+      </div>
+      <div class="text info"></div>
+      <input type="button" onclick="onClicks()" value="로그인" />
+    </form>
+  </div>
 </body>
 
 </html>
+
 <script>
-  // let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-  // const box = document.querySelector(".box");
-  // data.map((x, i) => {
-  //   box.innerHTML += `<button onclick="pageMove${x}()">${x}페이지</button>`;
-  // });
 
-  // const pageMove1 = () => {
-  //   window.location.href = `http://localhost:3000/skdksjdksjksjd1`;
-  // };
-  // const pageMove2 = () => {
-  //   window.location.href = `http://localhost:3000/sajdnskdk2`;
-  // };
-  // const pageMove3 = () => {
-  //   window.location.href = `http://localhost:3000/sadksandamsndmn1`;
-  // };
-  // const pageMove4 = () => {
-  //   window.location.href = `http://localhost:3000/ndnsns1`;
-  // };
-  // const pageMove5 = () => {
-  //   window.location.href = `http://localhost:3000/gmsmd213`;
-  // };
-  // const pageMove6 = () => {
-  //   window.location.href = `http://localhost:3000/ejmdnwnq2`;
-  // };
-  // const pageMove7 = () => {
-  //   window.location.href = `http://localhost:3000/dsnsq123`;
-  // };
-  // const pageMove8 = () => {
-  //   window.location.href = `http://localhost:3000/dsndjsjsn124`;
-  // };
-  // const pageMove9 = () => {
-  //   window.location.href = `http://localhost:3000/dsds14`;
-  // };
-  // const pageMove10 = () => {
-  //   window.location.href = `http://localhost:3000/dsasdw1`;
-  // };
-  // const pageMove11 = () => {
-  //   window.location.href = `http://localhost:3000/dmsmsmx1`;
-  // };
-  // const pageMove12 = () => {
-  //   window.location.href = `http://localhost:3000/dmdmsn12`;
-  // };
-  // const pageMove13 = () => {
-  //   window.location.href = `http://localhost:3000/dmdmsms1`;
-  // };
-  // const pageMove14 = () => {
-  //   window.location.href = `http://localhost:3000/dksjdskj1jk`;
-  // };
-  // const pageMove15 = () => {
-  //   window.location.href = `http://localhost:3000/dksjdknsk124`;
-  // };
-  // const pageMove16 = () => {
-  //   window.location.href = `http://localhost:3000/dkdkkw5`;
-  // };
-  // const pageMove17 = () => {
-  //   window.location.href = `http://localhost:3000/djkskjdsjsk12`;
-  // };
-  // const pageMove18 = () => {
-  //   window.location.href = `http://localhost:3000/djdsksnn1`;
-  // };
-  // const pageMove19 = () => {
-  //   window.location.href = `http://localhost:3000/dhsjhsjd14`;
-  // };
-  // const pageMove20 = () => {
-  //   window.location.href = `http://localhost:3000/asjdsjdhh2`;
-  // };
+  // axios
+  const onClicks = () => {
+    const mainForm = document.mainForm;
+    const info = document.querySelector(".info");
+    const ids = mainForm.id.value;
+    const pws = mainForm.pass.value;
+    const data = {
+      id: ids,
+      pw: pws,
+    };
 
-
-
-  let data = ["skdksjdksjksjd1",
-    "sajdnskdk2",
-    "sadksandamsndmn1",
-    "ndnsns1",
-    "gmsmd213",
-    "ejmdnwnq2",
-    "dsnsq123",
-    "dsndjsjsn124",
-    "dsds14",
-    "dsasdw1",
-    "dmsmsmx1",
-    "dmdmsn12",
-    "dmdmsms1",
-    "dksjdskj1jk",
-    "dksjdknsk124",
-    "dkdkkw5",
-    "djkskjdsjsk12",
-    "djdsksnn1",
-    "dhsjhsjd14",
-    "asjdsjdhh2"];
-  const box = document.querySelector(".box");
-  data.map((x, i) => {
-    box.innerHTML += `<button onclick="pageMove('${x}')">${i + 1}페이지</button>`;
-  });
-
-  const pageMove = (type) => {
-    window.location.href = `http://localhost:3000/${type}`;
+    axios({
+      method: "post",
+      url: "/axiospost",
+      data: data,
+    }).then((res) => {
+      console.log(res)
+      if (res.data === 404) {
+        info.innerHTML = `<div class="red">아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.</div>`;
+      } else {
+        info.innerHTML = `<div class="blue">로그인 성공!!</div>`;
+      }
+    }).catch((e) => {
+      console.log("에러");
+    })
+      ;
   };
 </script>
