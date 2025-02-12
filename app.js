@@ -18,67 +18,68 @@ app.set("views", "./views");
 app.get("/", (req, res) => {
   res.render("main");
 });
-
-app.get("/page1", (req, res) => {
-  res.render("page1", { title: "page1 입니다." });
+// 뒤에서부터임...
+app.get("/asjdsjdhh2", (req, res) => {
+  res.render("asjdsjdhh2");
 });
-app.get("/page2", (req, res) => {
-  res.render("page2", { title: "page2 입니다." });
+app.get("/dhsjhsjd14", (req, res) => {
+  res.render("dhsjhsjd14");
 });
-app.get("/page3", (req, res) => {
-  res.render("page3", { title: "page3 입니다." });
+app.get("/djdsksnn1", (req, res) => {
+  res.render("djdsksnn1");
 });
-app.get("/page4", (req, res) => {
-  res.render("page4", { title: "page4 입니다." });
+app.get("/djkskjdsjsk12", (req, res) => {
+  res.render("djkskjdsjsk12");
 });
-app.get("/page5", (req, res) => {
-  res.render("page5", { title: "page5 입니다." });
+app.get("/dkdkkw5", (req, res) => {
+  res.render("dkdkkw5");
 });
-app.get("/page6", (req, res) => {
-  res.render("page6", { title: "page6 입니다." });
+app.get("/dksjdknsk124", (req, res) => {
+  res.render("dksjdknsk124");
 });
-app.get("/page7", (req, res) => {
-  res.render("page7", { title: "page7 입니다." });
+app.get("/dksjdskj1jk", (req, res) => {
+  res.render("dksjdskj1jk");
 });
-app.get("/page8", (req, res) => {
-  res.render("page8", { title: "page8 입니다." });
+app.get("/dmdmsms1", (req, res) => {
+  res.render("dmdmsms1");
 });
-app.get("/page9", (req, res) => {
-  res.render("page9", { title: "page9 입니다." });
+app.get("/dmdmsn12", (req, res) => {
+  res.render("dmdmsn12");
 });
-app.get("/page10", (req, res) => {
-  res.render("page10", { title: "page10 입니다." });
+app.get("/dmsmsmx1", (req, res) => {
+  res.render("dmsmsmx1");
 });
-app.get("/page11", (req, res) => {
-  res.render("page11", { title: "page11 입니다." });
+app.get("/dsasdw1", (req, res) => {
+  res.render("dsasdw1");
 });
-app.get("/page12", (req, res) => {
-  res.render("page12", { title: "page12 입니다." });
+app.get("/dsds14", (req, res) => {
+  res.render("dsds14");
 });
-app.get("/page13", (req, res) => {
-  res.render("page13", { title: "page13 입니다." });
+app.get("/dsndjsjsn124", (req, res) => {
+  res.render("dsndjsjsn124");
 });
-app.get("/page14", (req, res) => {
-  res.render("page14", { title: "page14 입니다." });
+app.get("/dsnsq123", (req, res) => {
+  res.render("dsnsq123");
 });
-app.get("/page15", (req, res) => {
-  res.render("page15", { title: "page15 입니다." });
+app.get("/ejmdnwnq2", (req, res) => {
+  res.render("ejmdnwnq2");
 });
-app.get("/page16", (req, res) => {
-  res.render("page16", { title: "page16 입니다." });
+app.get("/gmsmd213", (req, res) => {
+  res.render("gmsmd213");
 });
-app.get("/page17", (req, res) => {
-  res.render("page17", { title: "page17 입니다." });
+app.get("/ndnsns1", (req, res) => {
+  res.render("ndnsns1");
 });
-app.get("/page18", (req, res) => {
-  res.render("page18", { title: "page18 입니다." });
+app.get("/sadksandamsndmn1", (req, res) => {
+  res.render("sadksandamsndmn1");
 });
-app.get("/page19", (req, res) => {
-  res.render("page19", { title: "page19 입니다." });
+app.get("/sajdnskdk2", (req, res) => {
+  res.render("sajdnskdk2");
 });
-app.get("/page20", (req, res) => {
-  res.render("page20", { title: "page20 입니다." });
+app.get("/skdksjdksjksjd1", (req, res) => {
+  res.render("skdksjdksjksjd1");
 });
+// 여기가 첫번째임
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

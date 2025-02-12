@@ -14,15 +14,101 @@
 
 </html>
 <script>
-  let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  // let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  // const box = document.querySelector(".box");
+  // data.map((x, i) => {
+  //   box.innerHTML += `<button onclick="pageMove${x}()">${x}페이지</button>`;
+  // });
+
+  // const pageMove1 = () => {
+  //   window.location.href = `http://localhost:3000/skdksjdksjksjd1`;
+  // };
+  // const pageMove2 = () => {
+  //   window.location.href = `http://localhost:3000/sajdnskdk2`;
+  // };
+  // const pageMove3 = () => {
+  //   window.location.href = `http://localhost:3000/sadksandamsndmn1`;
+  // };
+  // const pageMove4 = () => {
+  //   window.location.href = `http://localhost:3000/ndnsns1`;
+  // };
+  // const pageMove5 = () => {
+  //   window.location.href = `http://localhost:3000/gmsmd213`;
+  // };
+  // const pageMove6 = () => {
+  //   window.location.href = `http://localhost:3000/ejmdnwnq2`;
+  // };
+  // const pageMove7 = () => {
+  //   window.location.href = `http://localhost:3000/dsnsq123`;
+  // };
+  // const pageMove8 = () => {
+  //   window.location.href = `http://localhost:3000/dsndjsjsn124`;
+  // };
+  // const pageMove9 = () => {
+  //   window.location.href = `http://localhost:3000/dsds14`;
+  // };
+  // const pageMove10 = () => {
+  //   window.location.href = `http://localhost:3000/dsasdw1`;
+  // };
+  // const pageMove11 = () => {
+  //   window.location.href = `http://localhost:3000/dmsmsmx1`;
+  // };
+  // const pageMove12 = () => {
+  //   window.location.href = `http://localhost:3000/dmdmsn12`;
+  // };
+  // const pageMove13 = () => {
+  //   window.location.href = `http://localhost:3000/dmdmsms1`;
+  // };
+  // const pageMove14 = () => {
+  //   window.location.href = `http://localhost:3000/dksjdskj1jk`;
+  // };
+  // const pageMove15 = () => {
+  //   window.location.href = `http://localhost:3000/dksjdknsk124`;
+  // };
+  // const pageMove16 = () => {
+  //   window.location.href = `http://localhost:3000/dkdkkw5`;
+  // };
+  // const pageMove17 = () => {
+  //   window.location.href = `http://localhost:3000/djkskjdsjsk12`;
+  // };
+  // const pageMove18 = () => {
+  //   window.location.href = `http://localhost:3000/djdsksnn1`;
+  // };
+  // const pageMove19 = () => {
+  //   window.location.href = `http://localhost:3000/dhsjhsjd14`;
+  // };
+  // const pageMove20 = () => {
+  //   window.location.href = `http://localhost:3000/asjdsjdhh2`;
+  // };
+
+
+
+  let data = ["skdksjdksjksjd1",
+    "sajdnskdk2",
+    "sadksandamsndmn1",
+    "ndnsns1",
+    "gmsmd213",
+    "ejmdnwnq2",
+    "dsnsq123",
+    "dsndjsjsn124",
+    "dsds14",
+    "dsasdw1",
+    "dmsmsmx1",
+    "dmdmsn12",
+    "dmdmsms1",
+    "dksjdskj1jk",
+    "dksjdknsk124",
+    "dkdkkw5",
+    "djkskjdsjsk12",
+    "djdsksnn1",
+    "dhsjhsjd14",
+    "asjdsjdhh2"];
   const box = document.querySelector(".box");
   data.map((x, i) => {
-    box.innerHTML += `<button onclick="pageMove(${x})">${x}페이지</button>`;
+    box.innerHTML += `<button onclick="pageMove('${x}')">${i + 1}페이지</button>`;
   });
 
   const pageMove = (type) => {
-    window.location.href = `http://localhost:3000/page${type}`;
+    window.location.href = `http://localhost:3000/${type}`;
   };
-
-
 </script>
